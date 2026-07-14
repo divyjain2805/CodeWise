@@ -98,9 +98,8 @@ The frontend should now be running on `http://localhost:5173` and backend on `ht
 
 
 ## 🌍 Live Demo
-*(Add your deployment link here once hosted!)*
 
-[Live Application URL](https://your-deployment-link.com)
+[Live Application URL](https://code-wise-tawny.vercel.app)
 
 ## 🚀 Future Improvements
 - [ ] Support for community discussions and comments on problems
