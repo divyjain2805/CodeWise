@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light, dark;
+}
+
+@theme {
+  --color-primary: #FDE047;
+}
+
+[data-theme="light"] {
+  --color-primary: #FDE047;
+  --color-primary-content: #000000;
+  --color-base-100: #FFFFFF;
+  --color-base-200: #FFF8E7;
+  --color-base-300: #FDE6B0;
+  --color-base-content: #171717;
+}
+
+[data-theme="dark"] {
+  --color-primary: #FDE047;
+  --color-primary-content: #000000;
+  --color-base-100: #1E1E1E;
+  --color-base-200: #0A0A0A;
+  --color-base-300: #121212;
+  --color-base-content: #F3F4F6;
+}
+
+/* Base styles for smooth transition */
+body {
+  @apply transition-colors duration-300;
+}
