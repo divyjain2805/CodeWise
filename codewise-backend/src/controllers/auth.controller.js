@@ -52,7 +52,14 @@ async function loginuser(req, res) {
 
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
 
-    res.cookie('token', token);
+    const cookieOptions = {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    };
+
+    res.cookie('token', token, cookieOptions);
 
     res.status(200).json({ message: 'Login successful', user: { id: user._id, username: user.username, email: user.email, role: user.role }});
   }
@@ -63,7 +70,12 @@ async function loginuser(req, res) {
 }
 
 async function logoutuser(req, res) {
-    res.clearCookie('token');
+    const cookieOptions = {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    };
+    res.clearCookie('token', cookieOptions);
     res.status(200).json({ message: 'Logout successful' });
 }
 
