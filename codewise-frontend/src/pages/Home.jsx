@@ -10,14 +10,18 @@ function Home() {
     useEffect(() => {
         async function fetchHomeData() {
             try {
-                const [problemRes, statsRes] = await Promise.all([
+                const [problemRes, statsRes] = await Promise.allSettled([
                     api.get("/prob/problem-of-the-day"),
                     api.get("/admin/platform-stats"),
                 ]);
-                console.log(statsRes)
 
-                setProblem(problemRes.data.problem);
-                setStats(statsRes.data);
+                if (problemRes.status === "fulfilled" && problemRes.value.data.success) {
+                    setProblem(problemRes.value.data.problem);
+                }
+                
+                if (statsRes.status === "fulfilled") {
+                    setStats(statsRes.value.data);
+                }
                 
             } catch (error) {
                 console.log(error);
