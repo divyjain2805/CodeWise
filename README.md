@@ -104,6 +104,5 @@ The frontend should now be running on `http://localhost:5173` and backend on `ht
 ## 🚀 Future Improvements
 - [ ] Support for community discussions and comments on problems
 - [ ] Add peer-to-peer mock interviews with live shared editors
-- [ ] Expand the problem categories (SQL, Shell scripting, etc.)
 - [ ] Implement leaderboards and global ranking
 - [ ] Add support for OAuth login (Google, GitHub)
